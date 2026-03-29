@@ -868,7 +868,6 @@ function submitQuiz() {
     document.querySelectorAll(`#opts-${qi} .option`).forEach(o => o.classList.add('locked'));
   });
 
-  const total = questions.length;
   const pct = Math.round(correct / total * 100);
   document.getElementById('score-pct').textContent = pct + '%';
   const label = pct >= 90 ? '🏆 Отлично!' : pct >= 70 ? '👍 Хорошо' : pct >= 50 ? '📚 Нужно повторить' : '❌ Изучите материал';
