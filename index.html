@@ -442,11 +442,11 @@
     <div class="header-icon">EX4</div>
     <div>
       <h1>Файловая система EXT4</h1>
-      <div class="header-sub">50 вопросов · 4 варианта ответа</div>
+      <div class="header-sub" id="quiz-meta">50 вопросов · 4 варианта ответа</div>
     </div>
   </div>
   <div class="progress-area">
-    <div class="progress-label">Отвечено: <span id="answered-count">0</span> / 50</div>
+    <div class="progress-label">Отвечено: <span id="answered-count">0</span> / <span id="total-count">50</span></div>
     <div class="progress-bar-wrap">
       <div class="progress-bar-fill" id="progress-fill"></div>
     </div>
@@ -598,6 +598,11 @@ const questions = [
     options: ["s_inodes_count ÷ s_inodes_per_group", "s_blocks_count_lo ÷ s_blocks_per_group, округлить вверх", "s_blocks_per_group × s_log_block_size", "s_blocks_count_lo × s_log_block_size"]
   },
   {
+    q: "Какое поле в дескрипторе группы (GDT) содержит количество свободных inode в данной группе блоков?",
+    correct: "bg_free_inodes_count_lo",
+    options: ["bg_free_blocks_count_lo", "bg_free_inodes_count_lo", "bg_itable_unused_lo", "bg_used_dirs_count_lo"]
+  },
+  {
     q: "Какое поле в дескрипторе группы (GDT) показывает количество неиспользуемых inode в конце таблицы для оптимизации сканирования?",
     correct: "bg_itable_unused_lo",
     options: ["bg_free_inodes_count_lo", "bg_used_dirs_count_lo", "bg_itable_unused_lo", "bg_flags"]
@@ -745,6 +750,11 @@ function initQuiz() {
   });
   answered = {};
   submitted = false;
+  const total = questions.length;
+  document.getElementById('quiz-meta').textContent = `${total} вопросов · 4 варианта ответа`;
+  document.getElementById('total-count').textContent = total;
+  document.getElementById('remaining-count').textContent = total;
+  document.getElementById('score-sub').textContent = '';
   renderQuiz();
   updateProgress();
 }
@@ -798,19 +808,21 @@ function selectOption(qi, oi) {
 }
 
 function updateProgress() {
+  const total = questions.length;
   const count = Object.keys(answered).length;
   document.getElementById('answered-count').textContent = count;
-  document.getElementById('remaining-count').textContent = 50 - count;
-  document.getElementById('progress-fill').style.width = (count / 50 * 100) + '%';
+  document.getElementById('remaining-count').textContent = total - count;
+  document.getElementById('progress-fill').style.width = (count / total * 100) + '%';
 }
 
 function submitQuiz() {
+  const total = questions.length;
   const count = Object.keys(answered).length;
-  if (count < 50) {
+  if (count < total) {
     const warn = document.getElementById('warning-banner');
     warn.style.display = 'block';
     warn.style.animation = 'none';
-    warn.offsetHeight; // reflow
+    warn.offsetHeight;
     warn.style.animation = 'slideUp 0.3s ease';
     setTimeout(() => { warn.style.display = 'none'; }, 3000);
     return;
@@ -856,11 +868,12 @@ function submitQuiz() {
     document.querySelectorAll(`#opts-${qi} .option`).forEach(o => o.classList.add('locked'));
   });
 
-  const pct = Math.round(correct / 50 * 100);
+  const total = questions.length;
+  const pct = Math.round(correct / total * 100);
   document.getElementById('score-pct').textContent = pct + '%';
   const label = pct >= 90 ? '🏆 Отлично!' : pct >= 70 ? '👍 Хорошо' : pct >= 50 ? '📚 Нужно повторить' : '❌ Изучите материал';
   document.getElementById('score-label').textContent = label;
-  document.getElementById('score-sub').textContent = `Правильных ответов: ${correct} из 50`;
+  document.getElementById('score-sub').textContent = `Правильных ответов: ${correct} из ${total}`;
   document.getElementById('correct-count').textContent = correct;
   document.getElementById('wrong-count').textContent = wrong;
   document.getElementById('results-banner').classList.add('show');
