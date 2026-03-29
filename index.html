@@ -21,9 +21,9 @@
     --red-bg: #2b0d0d;
     --yellow: #d29922;
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   body {
     background: var(--bg);
     color: var(--text);
@@ -31,7 +31,7 @@
     min-height: 100vh;
     padding: 0 0 80px;
   }
-
+ 
   /* HEADER */
   .header {
     background: var(--surface);
@@ -45,13 +45,13 @@
     justify-content: space-between;
     gap: 24px;
   }
-
+ 
   .header-left {
     display: flex;
     align-items: center;
     gap: 12px;
   }
-
+ 
   .header-icon {
     width: 36px;
     height: 36px;
@@ -66,19 +66,19 @@
     color: white;
     flex-shrink: 0;
   }
-
+ 
   .header h1 {
     font-size: 18px;
     font-weight: 600;
     color: var(--text);
   }
-
+ 
   .header-sub {
     font-size: 13px;
     color: var(--muted);
     font-family: 'JetBrains Mono', monospace;
   }
-
+ 
   .progress-area {
     display: flex;
     flex-direction: column;
@@ -86,13 +86,13 @@
     gap: 6px;
     min-width: 200px;
   }
-
+ 
   .progress-label {
     font-size: 12px;
     color: var(--muted);
     font-family: 'JetBrains Mono', monospace;
   }
-
+ 
   .progress-bar-wrap {
     width: 200px;
     height: 6px;
@@ -100,7 +100,7 @@
     border-radius: 3px;
     overflow: hidden;
   }
-
+ 
   .progress-bar-fill {
     height: 100%;
     background: linear-gradient(90deg, #1f6feb, #58a6ff);
@@ -108,14 +108,14 @@
     transition: width 0.4s ease;
     width: 0%;
   }
-
+ 
   /* MAIN */
   .main {
     max-width: 820px;
     margin: 0 auto;
     padding: 32px 24px;
   }
-
+ 
   /* QUESTION CARD */
   .question-card {
     background: var(--surface);
@@ -125,24 +125,24 @@
     margin-bottom: 20px;
     transition: border-color 0.2s;
   }
-
+ 
   .question-card.answered-correct {
     border-color: var(--green);
     background: linear-gradient(135deg, var(--surface), #0d2b1a22);
   }
-
+ 
   .question-card.answered-wrong {
     border-color: var(--red);
     background: linear-gradient(135deg, var(--surface), #2b0d0d22);
   }
-
+ 
   .question-header {
     display: flex;
     align-items: flex-start;
     gap: 14px;
     margin-bottom: 20px;
   }
-
+ 
   .question-num {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -156,21 +156,21 @@
     flex-shrink: 0;
     margin-top: 2px;
   }
-
+ 
   .question-text {
     font-size: 15px;
     line-height: 1.6;
     color: var(--text);
     font-weight: 500;
   }
-
+ 
   /* OPTIONS */
   .options {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-
+ 
   .option {
     display: flex;
     align-items: flex-start;
@@ -183,27 +183,27 @@
     transition: all 0.18s ease;
     user-select: none;
   }
-
+ 
   .option:hover:not(.locked) {
     border-color: var(--accent);
     background: #1f6feb11;
   }
-
+ 
   .option.selected-correct {
     border-color: var(--green);
     background: var(--green-bg);
   }
-
+ 
   .option.selected-wrong {
     border-color: var(--red);
     background: var(--red-bg);
   }
-
+ 
   .option.reveal-correct {
     border-color: var(--green);
     background: var(--green-bg);
   }
-
+ 
   .option-letter {
     width: 24px;
     height: 24px;
@@ -219,39 +219,39 @@
     flex-shrink: 0;
     transition: all 0.18s;
   }
-
+ 
   .option.selected-correct .option-letter {
     background: var(--green);
     color: white;
   }
-
+ 
   .option.selected-wrong .option-letter {
     background: var(--red);
     color: white;
   }
-
+ 
   .option.reveal-correct .option-letter {
     background: var(--green);
     color: white;
   }
-
+ 
   .option-text {
     font-size: 14px;
     line-height: 1.5;
     color: var(--text);
     flex: 1;
   }
-
+ 
   .option.selected-correct .option-text { color: #7ee787; }
   .option.selected-wrong .option-text { color: #ff7b72; }
   .option.reveal-correct .option-text { color: #7ee787; }
-
+ 
   .option-icon {
     margin-left: auto;
     flex-shrink: 0;
     font-size: 16px;
   }
-
+ 
   /* CODE INLINE */
   code {
     font-family: 'JetBrains Mono', monospace;
@@ -262,7 +262,7 @@
     padding: 1px 5px;
     color: #79c0ff;
   }
-
+ 
   /* SUBMIT BUTTON */
   .submit-area {
     position: fixed;
@@ -278,17 +278,17 @@
     gap: 16px;
     z-index: 100;
   }
-
+ 
   .submit-info {
     font-size: 13px;
     color: var(--muted);
   }
-
+ 
   .submit-info span {
     color: var(--accent);
     font-weight: 600;
   }
-
+ 
   .btn-submit {
     background: linear-gradient(135deg, #1f6feb, #58a6ff);
     color: white;
@@ -302,18 +302,18 @@
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.3px;
   }
-
+ 
   .btn-submit:hover:not(:disabled) {
     transform: translateY(-1px);
     box-shadow: 0 4px 20px #1f6feb55;
   }
-
+ 
   .btn-submit:disabled {
     opacity: 0.4;
     cursor: not-allowed;
     transform: none;
   }
-
+ 
   /* RESULTS BANNER */
   .results-banner {
     background: var(--surface);
@@ -324,9 +324,9 @@
     text-align: center;
     display: none;
   }
-
+ 
   .results-banner.show { display: block; }
-
+ 
   .results-score {
     font-family: 'JetBrains Mono', monospace;
     font-size: 64px;
@@ -338,48 +338,48 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
+ 
   .results-label {
     font-size: 18px;
     color: var(--text);
     font-weight: 600;
     margin-bottom: 4px;
   }
-
+ 
   .results-sub {
     font-size: 14px;
     color: var(--muted);
     margin-bottom: 24px;
   }
-
+ 
   .results-stats {
     display: flex;
     justify-content: center;
     gap: 32px;
     flex-wrap: wrap;
   }
-
+ 
   .stat-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
   }
-
+ 
   .stat-num {
     font-family: 'JetBrains Mono', monospace;
     font-size: 28px;
     font-weight: 700;
   }
-
+ 
   .stat-num.green { color: var(--green); }
   .stat-num.red { color: var(--red); }
-
+ 
   .stat-label {
     font-size: 12px;
     color: var(--muted);
   }
-
+ 
   .btn-retry {
     margin-top: 24px;
     background: transparent;
@@ -392,12 +392,12 @@
     font-family: 'Inter', sans-serif;
     transition: all 0.2s;
   }
-
+ 
   .btn-retry:hover {
     border-color: var(--accent);
     color: var(--accent);
   }
-
+ 
   /* unanswered warning */
   .warning-banner {
     display: none;
@@ -416,12 +416,12 @@
     z-index: 200;
     animation: slideUp 0.3s ease;
   }
-
+ 
   @keyframes slideUp {
     from { opacity: 0; transform: translateX(-50%) translateY(10px); }
     to { opacity: 1; transform: translateX(-50%) translateY(0); }
   }
-
+ 
   @media (max-width: 600px) {
     .header { padding: 14px 16px; }
     .header h1 { font-size: 15px; }
@@ -436,7 +436,7 @@
 </style>
 </head>
 <body>
-
+ 
 <div class="header">
   <div class="header-left">
     <div class="header-icon">EX4</div>
@@ -452,7 +452,7 @@
     </div>
   </div>
 </div>
-
+ 
 <div class="main">
   <div class="results-banner" id="results-banner">
     <div class="results-score" id="score-pct">0%</div>
@@ -464,17 +464,17 @@
     </div>
     <button class="btn-retry" onclick="retryQuiz()">↺ Пройти заново</button>
   </div>
-
+ 
   <div id="quiz-container"></div>
 </div>
-
+ 
 <div class="submit-area">
   <div class="submit-info">Не отвечено: <span id="remaining-count">50</span></div>
   <button class="btn-submit" id="submit-btn" onclick="submitQuiz()">Завершить тест</button>
 </div>
-
+ 
 <div class="warning-banner" id="warning-banner">⚠ Ответьте на все вопросы, прежде чем завершить</div>
-
+ 
 <script>
 const questions = [
   {
@@ -728,12 +728,12 @@ const questions = [
     options: ["0", "1", "2", "11"]
   }
 ];
-
+ 
 // Shuffle options but remember correct index
 let quizData = [];
 let answered = {};
 let submitted = false;
-
+ 
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -742,7 +742,7 @@ function shuffle(arr) {
   }
   return a;
 }
-
+ 
 function initQuiz() {
   quizData = questions.map((q, qi) => {
     const shuffled = shuffle(q.options);
@@ -758,9 +758,9 @@ function initQuiz() {
   renderQuiz();
   updateProgress();
 }
-
+ 
 const letters = ['A', 'B', 'C', 'D'];
-
+ 
 function renderQuiz() {
   const container = document.getElementById('quiz-container');
   container.innerHTML = '';
@@ -768,7 +768,7 @@ function renderQuiz() {
     const card = document.createElement('div');
     card.className = 'question-card';
     card.id = `q-${qi}`;
-
+ 
     card.innerHTML = `
       <div class="question-header">
         <span class="question-num">#${String(qi+1).padStart(2,'0')}</span>
@@ -787,11 +787,11 @@ function renderQuiz() {
     container.appendChild(card);
   });
 }
-
+ 
 function selectOption(qi, oi) {
   if (submitted) return;
   answered[qi] = oi;
-
+ 
   // Update UI for this question
   for (let i = 0; i < 4; i++) {
     const el = document.getElementById(`opt-${qi}-${i}`);
@@ -799,14 +799,14 @@ function selectOption(qi, oi) {
     el.querySelector('.option-letter').textContent = letters[i];
     el.querySelector('.option-icon').textContent = '';
   }
-
+ 
   const sel = document.getElementById(`opt-${qi}-${oi}`);
   sel.classList.add('selected-correct'); // tentative highlight
   sel.querySelector('.option-letter').textContent = '✓';
-
+ 
   updateProgress();
 }
-
+ 
 function updateProgress() {
   const total = questions.length;
   const count = Object.keys(answered).length;
@@ -814,7 +814,7 @@ function updateProgress() {
   document.getElementById('remaining-count').textContent = total - count;
   document.getElementById('progress-fill').style.width = (count / total * 100) + '%';
 }
-
+ 
 function submitQuiz() {
   const total = questions.length;
   const count = Object.keys(answered).length;
@@ -827,16 +827,16 @@ function submitQuiz() {
     setTimeout(() => { warn.style.display = 'none'; }, 3000);
     return;
   }
-
+ 
   submitted = true;
   let correct = 0;
   let wrong = 0;
-
+ 
   quizData.forEach((q, qi) => {
     const card = document.getElementById(`q-${qi}`);
     const chosen = answered[qi];
     const isCorrect = chosen === q.correctIndex;
-
+ 
     if (isCorrect) {
       correct++;
       card.classList.add('answered-correct');
@@ -844,30 +844,30 @@ function submitQuiz() {
       wrong++;
       card.classList.add('answered-wrong');
     }
-
+ 
     for (let i = 0; i < 4; i++) {
       const el = document.getElementById(`opt-${qi}-${i}`);
       el.classList.remove('selected-correct', 'selected-wrong', 'reveal-correct');
       el.querySelector('.option-icon').textContent = '';
       el.querySelector('.option-letter').textContent = letters[i];
     }
-
+ 
     // Mark correct
     const correctEl = document.getElementById(`opt-${qi}-${q.correctIndex}`);
     correctEl.classList.add('reveal-correct');
     correctEl.querySelector('.option-icon').textContent = '✓';
-
+ 
     // Mark wrong if chosen differently
     if (!isCorrect) {
       const chosenEl = document.getElementById(`opt-${qi}-${chosen}`);
       chosenEl.classList.add('selected-wrong');
       chosenEl.querySelector('.option-icon').textContent = '✗';
     }
-
+ 
     // Lock all options
     document.querySelectorAll(`#opts-${qi} .option`).forEach(o => o.classList.add('locked'));
   });
-
+ 
   const pct = Math.round(correct / total * 100);
   document.getElementById('score-pct').textContent = pct + '%';
   const label = pct >= 90 ? '🏆 Отлично!' : pct >= 70 ? '👍 Хорошо' : pct >= 50 ? '📚 Нужно повторить' : '❌ Изучите материал';
@@ -879,14 +879,14 @@ function submitQuiz() {
   document.getElementById('results-banner').scrollIntoView({ behavior: 'smooth' });
   document.getElementById('submit-btn').disabled = true;
 }
-
+ 
 function retryQuiz() {
   document.getElementById('results-banner').classList.remove('show');
   document.getElementById('submit-btn').disabled = false;
   initQuiz();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
+ 
 initQuiz();
 </script>
 </body>
